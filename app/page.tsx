@@ -4,6 +4,7 @@ import Image from "next/image";
 import { assets } from "@/utils/assets-utils";
 import { type Framework, frameworks } from "@/utils/framework-utils";
 import { useEffect, useState } from "react";
+import { cn } from "@/utils/tailwind-util";
 
 export default function Home() {
   const [currentFramework, setCurrentFramework] = useState<Framework>(
@@ -24,7 +25,22 @@ export default function Home() {
   }, []);
   return (
     <main>
-      <div className="fixed inset-0 transition-color delay-100 duration-700 opacity-25" />
+      <div
+        className={cn(
+          "fixed inset-0 transition-color delay-100 duration-700 opacity-25",
+          {
+            "bg-purple-300": currentFramework === "qwik",
+            "bg-sky-300": currentFramework === "safari",
+            "bg-yellow-300": currentFramework === "chrome",
+            "bg-teal-300": currentFramework === "tailwind",
+            "bg-blue-300": currentFramework === "react",
+            "bg-green-300": currentFramework === "vue",
+            "bg-orange-400": currentFramework === "svelte",
+            "bg-red-300": currentFramework === "mobile",
+            "bg-neutral-300": currentFramework === "desktop",
+          }
+        )}
+      />
       <Image
         alt="gradient"
         width={1200}
