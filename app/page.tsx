@@ -6,6 +6,7 @@ import { type Framework, frameworks } from "@/utils/framework-utils";
 import { useEffect, useState } from "react";
 import { cn } from "@/utils/tailwind-util";
 import { Poppins } from "next/font/google";
+import { FrameworkRotation } from "@/components/framework-rotation";
 
 const poppins = Poppins({
   weight: "700",
@@ -77,7 +78,7 @@ export default function Home() {
       <div className="max-w-7xl mt-20 mx-auto">
         <div className="flex flex-col items-center relative z-10">
           <h1
-            className={`text-7xl max-w-3xl text-center leading-snug mb-12 ${poppins.className}`}
+            className={`text-5xl max-w-3xl text-center leading-snug mb-12 ${poppins.className}`}
           >
             <Image
               alt="Figma logo"
@@ -86,7 +87,8 @@ export default function Home() {
               width={"50"}
               height={"50"}
             />
-            to Framework will <span>never</span> be the same again
+            to <FrameworkRotation currentFramework={currentFramework} /> will{" "}
+            <span>never</span> be the same again
           </h1>
         </div>
       </div>
