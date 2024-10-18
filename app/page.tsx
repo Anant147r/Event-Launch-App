@@ -5,6 +5,13 @@ import { assets } from "@/utils/assets-utils";
 import { type Framework, frameworks } from "@/utils/framework-utils";
 import { useEffect, useState } from "react";
 import { cn } from "@/utils/tailwind-util";
+import { Poppins } from "next/font/google";
+import { FrameworkRotation } from "@/components/framework-rotation";
+
+const poppins = Poppins({
+  weight: "700",
+  subsets: ["latin"],
+});
 
 export default function Home() {
   const [currentFramework, setCurrentFramework] = useState<Framework>(
@@ -12,6 +19,7 @@ export default function Home() {
   );
 
   const [showBackground, setShowBackground] = useState(false);
+
   useEffect(() => {
     let currentIndex = 0;
     const rotateFrameworks = () => {
@@ -66,7 +74,39 @@ export default function Home() {
           "bg-black fixed inset-0 transition-opacity duration-[1500ms]",
           !showBackground ? "opacity-100" : "opacity-0"
         )}
-      ></div>
+      />
+      <div className="max-w-7xl mt-20 mx-auto">
+        <div className="flex flex-col items-center relative z-10">
+          <h1
+            className={`text-5xl max-w-3xl text-center leading-snug mb-12 ${poppins.className}`}
+          >
+            <Image
+              alt="Figma logo"
+              className="inline-block mr-8 -mt-2"
+              src={assets.figma}
+              width={"50"}
+              height={"50"}
+            />
+            to <FrameworkRotation currentFramework={currentFramework} /> will{" "}
+            <span
+              className={cn("transition-colors duration-200", {
+                "text-purple-300": currentFramework === "qwik",
+                "text-sky-300": currentFramework === "safari",
+                "text-yellow-300": currentFramework === "chrome",
+                "text-teal-300": currentFramework === "tailwind",
+                "text-blue-300": currentFramework === "react",
+                "text-green-300": currentFramework === "vue",
+                "text-orange-400": currentFramework === "svelte",
+                "text-red-300": currentFramework === "mobile",
+                "text-neutral-300": currentFramework === "desktop",
+              })}
+            >
+              never
+            </span>{" "}
+            be the same again
+          </h1>
+        </div>
+      </div>
     </main>
   );
 }
