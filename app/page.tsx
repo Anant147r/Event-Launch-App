@@ -105,6 +105,26 @@ export default function Home() {
             </span>{" "}
             be the same again
           </h1>
+          <p className="mb-8">
+            <span className="text-gray-300">
+              Join us for an AI launch event by{""}
+            </span>
+            <Image
+              alt="Builder.io logo"
+              className="inline-block ml-1 -mt-1"
+              height={20}
+              width={100}
+              src={assets.builder}
+            />
+            {" + "}
+            <Image
+              alt="Figma logo"
+              className="inline-block mx-1"
+              height={20}
+              width={55}
+              src={assets.figmatwo}
+            />
+          </p>
         </div>
       </div>
     </main>
