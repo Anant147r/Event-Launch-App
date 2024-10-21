@@ -9,3 +9,5 @@ export const frameworks = [
   "safari",
   "svelte",
 ] as const;
+
+export type Framework = (typeof frameworks)[number];
