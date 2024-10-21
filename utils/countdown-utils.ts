@@ -1,5 +1,5 @@
 export const CalculateTimeToEvent = () => {
-  const eventDate = new Date("2023-10-12T09:00:00-07:00");
+  const eventDate = new Date("2026-12-12T09:00:00-07:00");
   const currentDate = new Date();
   const timeRemaining = eventDate.getTime() - currentDate.getTime();
   const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));

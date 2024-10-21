@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { cn } from "@/utils/tailwind-util";
 import { Poppins } from "next/font/google";
 import { FrameworkRotation } from "@/components/framework-rotation";
+import { CountdownTimer } from "@/components/countdown-timer";
 
 const poppins = Poppins({
   weight: "700",
@@ -145,6 +146,7 @@ export default function Home() {
               Claim Ticket
             </button>
           </div>
+          <CountdownTimer currentFramework={currentFramework} />
         </div>
       </div>
     </main>

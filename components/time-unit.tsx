@@ -1,5 +1,6 @@
 import { Framework } from "@/utils/framework-utils";
 import { cn } from "@/utils/tailwind-util";
+import { NumberRotation } from "./number-rotation";
 
 export const TimeUnit = ({
   label,
@@ -12,7 +13,9 @@ export const TimeUnit = ({
 }) => {
   return (
     <div className="flex flex-col">
-      <div className="text-white text-3xl font-semibold">{value}</div>
+      <div className="text-white text-3xl font-semibold">
+        <NumberRotation number={value} />
+      </div>
       <div
         className={cn("text-[8px] font-medium", {
           "text-purple-300": currentFramework === "qwik",
@@ -25,7 +28,9 @@ export const TimeUnit = ({
           "text-red-300": currentFramework === "mobile",
           "text-neutral-300": currentFramework === "desktop",
         })}
-      ></div>
+      >
+        {label}
+      </div>
     </div>
   );
 };
